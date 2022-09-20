@@ -1,3 +1,6 @@
+/**
+ * Escrever um algoritmo que gera e escreve os números ímpares entre 100 e 200.
+ */
 public class exercicio06 {
     public static void main(String[] args){
         double impares = 0;

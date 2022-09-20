@@ -1,47 +1,37 @@
-import javax.swing.*;
+/**
+ * Escrever um algoritmo que leia uma quantidade desconhecida de números e conte quantos deles
+ * estão nos seguintes intervalos: [0-25], [26-50], [51-75] e [76-100]. A entrada de dados deve
+ * terminar quando for lido um número negativo.
+ */
+
+import java.util.Scanner;
 
 
 public class exercicio04 {
     public static void main(String[] args){
-        int numero = -1;
-        int quantidade1 = 0;
-        int quantidade2 = 0;
-        int quantidade3 = 0;
-        int quantidade4 = 0;
-        int quantidadeForaDoIntervalo = 0;
+        Scanner sc = new Scanner(System.in);
+        Integer n;
+        int i0_25 = 0, i26_50 = 0,i51_75 = 0, i76_100 = 0;
+        String exit;
+        do{
+            System.out.println("Digite um número entre 0 e 100: ");
+            n = sc.nextInt();
 
-        while (numero >= 0) {
-
-            System.out.println("Informe um numero");
-            numero = Integer.parseInt(JOptionPane.showInputDialog("Informe um numero"));
-
-
-            if ((numero <= 0) || (numero > 100)) {
-                quantidadeForaDoIntervalo = quantidadeForaDoIntervalo + 1;
-            } else {
-                if ((numero >= 0) && (numero <= 25)) {
-                    quantidade1 = quantidade1 + 1;
-                }
-
-                if ((numero >= 26) && (numero <= 50)) {
-                    quantidade2 = quantidade2 + 1;
-                }
-
-                if ((numero >= 51) && (numero <= 75)) {
-                    quantidade3 = quantidade3 + 1;
-                }
-
-                if ((numero >= 76) && (numero <= 100)) {
-                    quantidade4 = quantidade4 + 1;
-                }
+            if (n>= 0 && n<= 25) {
+                i0_25++;
+            }else if (n >= 26 && n <= 50){
+                i26_50++;
+            }else if (n >= 51 && n <= 75) {
+                i51_75++;
+            } else if (n >= 76 && n <= 100) {
+                i76_100++;
+            } else if (n > 100){
+                System.out.println("O número deve estar entre 0 e 100! ");
             }
 
-        }
+        }while (n >= 0);
 
-        System.out.println("Quantidade de números no intervalo de 0 a 25, é de " + quantidade1);
-        System.out.println("Quantidade de números no intervalo de 25 a 50, é de " + quantidade2);
-        System.out.println("Quantidade de números no intervalo de 50 a 75, é de " + quantidade3);
-        System.out.println("Quantidade de números no intervalo de 75 a 100, é de " + quantidade4);
-        System.out.println("Quantidade de números fora do intervalo, é de" + quantidadeForaDoIntervalo);
+        System.out.println(i0_25 + " - " + i26_50 + " - " + i51_75 + " - " + i76_100);
+
     }
 }

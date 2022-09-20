@@ -1,46 +1,43 @@
-import javax.swing.*;
+/*
+Desenvolver um algoritmo que leia um número não determinado de valores e calcule e escreva a
+média aritmética dos valores lidos, a quantidade de valores positivos, a quantidade de valores
+negativos e o percentual de valores negativos e positivos.
+ */
+
 import java.util.Scanner;
 
 public class exercicio03 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int mediaAritimetica = 0;
-        int qtdValoresPares = 0;
-        int qtdValoresImpares = 0;
-        int porcentagemValorPar;
-        int porcentagemValorImpar;
-        int soma = 0;
-        int cont = 0;
+        String exit;
+        double mediaAritimetica = 0, qtdValoresPositivo = 0, qtdValoresNegativo = 0;
+        double porcentagemValorP, porcentagemValorN, soma = 0;
 
-        int valorA = 0;
-        while (valorA != (-1)) {
-            System.out.println("Informe um número inteiro e positivo;");
-            valorA = Integer.parseInt(JOptionPane.showInputDialog("Informe um número inteiro e positivo"));
 
-            if (valorA >= 0) {
-                soma = soma + valorA;
-                cont = cont + 1;
-
-                if (valorA % 2 == 0) {
-                    qtdValoresPares = qtdValoresPares + 1;
-                } else {
-                    qtdValoresImpares = qtdValoresImpares + 1;
-                }
+        do {
+            System.out.println("Digite um numero: ");
+            double number = sc.nextDouble();
+            soma += number;
+            if (number >= 0) {
+                qtdValoresPositivo++;
+            } else {
+                qtdValoresNegativo++;
             }
-        }
+            System.out.println("Quer encerrar o programa? se sim digite (S) se não (N) ");
+            exit = sc.next();
 
-        mediaAritimetica = soma / cont;
+
+        } while (!exit.toUpperCase().equals("S"));
+        mediaAritimetica = soma / (qtdValoresPositivo + qtdValoresNegativo);
+        porcentagemValorP = qtdValoresPositivo / (qtdValoresPositivo + qtdValoresNegativo);
+        porcentagemValorN = qtdValoresNegativo / (qtdValoresNegativo + qtdValoresPositivo);
+
+        System.out.println("A quantidade de números postivos é " + (qtdValoresPositivo));
+        System.out.println("A quantidade de numeros negativos é " + (qtdValoresNegativo));
+        System.out.println("A média aritimétrica é " + (mediaAritimetica));
+        System.out.println("A porcentagem de valores positivos é " + (porcentagemValorP));
+        System.out.println("A porcentagem de valores negativos é " + (porcentagemValorN));
 
 
-        porcentagemValorPar = qtdValoresPares * 100 / cont;
-        porcentagemValorImpar = qtdValoresImpares * 100 / cont;
-
-        System.out.println("A média aritimética é: " + mediaAritimetica);
-
-        System.out.println("A quantidade de valores lidos PARES é: " + qtdValoresPares);
-        System.out.println("A quantidade de valores lidos IMPARES é: " + qtdValoresImpares);
-
-        System.out.println("O percentual de PARES é: " + porcentagemValorPar);
-        System.out.println("O percentual de IMPARES é: " + porcentagemValorImpar);
     }
 }

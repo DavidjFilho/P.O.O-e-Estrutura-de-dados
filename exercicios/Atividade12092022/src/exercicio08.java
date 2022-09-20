@@ -1,16 +1,22 @@
-import javax.swing.*;
+/**
+ *  Escreva um algoritmo que leia um valor inicial A e uma razão R e imprima uma seqüência em
+ * P.A. contendo 10 valores.
+ */
 import java.util.Scanner;
 
 public class exercicio08 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int r = 2;
-        int valor = Integer.parseInt(JOptionPane.showInputDialog("Informe o início da P.A: "));
+        double a = scanner.nextDouble();
+        double r = scanner.nextDouble();
+        double result = a;
+        for (int i = 0; i < 10 ; i++) {
+            System.out.println(result);
+            result += r;
+            
+        }
 
-        for (int i = 2; i <= 10 ; i++) {
-                System.out.println(valor + r);
-            }
 
         }
 

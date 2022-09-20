@@ -1,9 +1,13 @@
+/**
+ * Escrever um algoritmo que leia um valor para uma variável N de 1 a 10 e calcule a tabuada de
+ * N. Mostre a tabuada na forma: 0 x N = 0, 1 x N = 1N, 2 x N = 2N, ..., 10 x N = 10N.
+ */
+
 import javax.swing.*;
-import java.util.Scanner;
+
 
 public class exercicio07 {
     public static void main(String[] args){
-        //Scanner scanner = new Scanner(System.in);
         int valor = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor a ser calculado"));
 
         for (int i = 0; i < 11 ; i++) {
